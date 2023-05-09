@@ -12,7 +12,7 @@ class Car extends VehicleModule {
         this.maxPassengers = 5;
         this.fuel = 10;
         this.speed = 0;
-        this.maxSpeed = 150;
+        this.maxSpeed = 160;
         this.mileage = mileage;
         this.started = false;
         this.scheduleService = false;
@@ -30,7 +30,7 @@ class Car extends VehicleModule {
         }
     }
 
-    enterPassenger(num) {
+    loadPassenger(num) {
         if (this.passenger < this.maxPassengers) {
             if ((num + this.passenger) <= this.maxPassengers) {
                 this.passenger = num;
@@ -60,7 +60,7 @@ class Car extends VehicleModule {
 }
 
 myCar.start()
-myCar.enterPassenger(5)
+myCar.loadPassenger(5)
 myCar.stop()
 myCar.checkService()
 
