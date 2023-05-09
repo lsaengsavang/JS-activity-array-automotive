@@ -1,35 +1,67 @@
-//this includes the vehicle class as a module
-const VehicleModule = require("./vehicleBaseClass")
+const VehicleModule = require('./vehicle').Vehicle
 
-//this shows how to call from this module...
 let v = new VehicleModule.Vehicle("Mercury", "Sedan", "1965", "color", "mileage");
-console.log(v.make)
+
+class Car extends VehicleModule {
+    constructor(make, model, year, color, mileage) {
+        this.make = Mercury;
+        this.model = model;
+        this.year = 1965;
+        this.color = color;
+        this.passenger = 0;
+        this.maxPassengers = 5;
+        this.fuel = 10;
+        this.speed = 0;
+        this.maxSpeed = 150;
+        this.mileage = mileage;
+        this.started = false;
+        this.scheduleService = false;
+        this.numberOfWheels = 4;
+    }
 
 
-//After you write the derived Car class, you should test it out.
+    start() {
+        if (this.fuel > 0) {            
+            console.log("engine started!");
+            return this.started = true
+        } else {
+            console.log("engine cannot start");
+            return this.started = false;
+        }
+    }
 
-//Note: You can code your derived Car class here or make a file named index.js and do it there.
+    enterPassenger(num) {
+        if (this.passenger < this.maxPassengers) {
+            if ((num + this.passenger) <= this.maxPassengers) {
+                this.passenger = num;
+                return this.passenger;               
+            } else {
+                console.log(this.model + " " + this.make + " has too many passengers.");
+
+            }
+        } else {
+            console.log(this.model + " " + this.make + " is full");
+        }
+    }
+
+    stop() {
+      this.started = false;
+  }
+
+    checkService() {
+      if (this.mileage > 30000) {            
+          this.scheduleService = true
+          return this.scheduleService;                       
+      }
+  }
 
 
-//TO DO: Code the Car subclass here or in index.js file, i.e. class Car extends Vehicle ...
 
+}
 
+myCar.start()
+myCar.enterPassenger(5)
+myCar.stop()
+myCar.checkService()
 
-
-
-
-
-
-
-
-
-
-//TO DO: Creating Instances and Testing Them
-
-//You can use the same instance "v" of the Vehicle class above for the base class.
-
-
-
-
-
-//Create at least two new instances of the Car class and test them here:
+console.log(myCar)
